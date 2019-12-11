@@ -7,7 +7,7 @@ awk 'BEGIN{ i=0;}{
  }
 END{
         ndata=i;
-        nbins=int(ndata**(1/3.));
+        nbins=int(ndata^(1/3.));
         #facciamo un istogramma simmetrico
         largh_bin=(max-min)/nbins;   #print min,max,largh_bin,nbins,(max-min);
         for(j=0;j<=nbins;j++){
