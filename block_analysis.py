@@ -3,6 +3,7 @@
 
 import numpy as np
 import pyblock
+import sys
 
 #def corr_data(N, L):
 #    '''Generate random correlated data containing 2^N data points.
