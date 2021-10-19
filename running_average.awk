@@ -1,4 +1,5 @@
 #to use: awk -vn=nblocks -f running_average.awk
+#if you use integers, you can print round(a[j]) instead of a[j]
 
 BEGIN {
     m=int((n+1)/2)
@@ -11,7 +12,8 @@ NR>=n{
 }
 END {
     for (j=1; j<=k; j++)
-        print d[j],round(a[j])
+        print d[j],a[j]
+        #print d[j],round(a[j])
 }
 function round(x, ival, aval, fraction)
 {
