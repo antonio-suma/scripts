@@ -3,7 +3,7 @@
 #output file .xyz plus topo bond for vmd
 
 #!/bin/bash
-awk '{
+awk 'BEGIN{factA=8.518}{
 
 if($2=="TIMESTEP")i=1
 if(i==2){t=$1}
@@ -22,8 +22,13 @@ if(i>=10){
 	mya1[1]=0
 	mya1[2]=0
         quat_to_exyz(myquat,mya1)	
-	printf("C %f %f %f\n",$3-0.4*mya1[0],$4-0.4*mya1[1],$5-0.4*mya1[2])
-	printf("O %f %f %f\n",$3+0.4*mya1[0],$4+0.4*mya1[1],$5+0.4*mya1[2])
+	if($2==1)type="A" 
+	if($2==2)type="C" 
+	if($2==3)type="G" 
+	if($2==4)type="T" 
+        quat_to_exyz(myquat,mya1)	
+	printf("%s %f %f %f\n",type,($3-0.4*mya1[0])*factA,($4-0.4*mya1[1])*factA,($5-0.4*mya1[2])*factA)
+	printf("%s %f %f %f\n",type,($3+0.4*mya1[0])*factA,($4+0.4*mya1[1])*factA,($5+0.4*mya1[2])*factA)
 } 
 
 
