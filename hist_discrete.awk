@@ -8,5 +8,5 @@ END{
                 print j,hist[j]/ndata
         }
 
-}' 
+}' | sort -g
 
