@@ -78,7 +78,7 @@ END{
                                 if(alpha<0) alpha+=2*PI
                                 psi_re+=cos(alpha*6.)
                                 psi_im+=sin(alpha*6.)
-                                k++
+                                k++ #counts the number of neighbours
 #                               print i,x[i],y[i],neigh[i],dist,cosalpha,alpha,k,psi_re,psi_im
 
                         }
@@ -87,7 +87,7 @@ END{
 
                 psi_re=psi_re/k
                 psi_im=psi_im/k
-                print i,x[i],y[i],V[i],psi_re,psi_im,sqrt(psi_re*psi_re+psi_im*psi_im)
+                print i,x[i],y[i],V[i],psi_re,psi_im,sqrt(psi_re*psi_re+psi_im*psi_im),k
 
         }
 
